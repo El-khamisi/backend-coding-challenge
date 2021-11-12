@@ -10,11 +10,13 @@ const routes = require('./routes');
  */
 
 // Gives us access to variables set in the .env file via `process.env.VARIABLE_NAME` syntax
-const dotenv = require('dotenv').config();
+require('dotenv').config()
 
 // Create the Express application
-var app = express();
+const app = express();
 
+//static Folder
+app.use(express.static('view'))
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
