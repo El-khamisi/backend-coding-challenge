@@ -1,10 +1,11 @@
-.leaderboard {
+#leaderboard {
     max-width: 490px;
     width: 100%;
     border-radius: 12px;
 }
 
-.leaderboard header {
+#leaderboard header {
+    margin-bottom: 50px;
     --start: 15%;
     height: 130px;
     background-image: repeating-radial-gradient(circle at var(--start), transparent 0%, transparent 10%, rgba(54, 89, 219, 0.33) 10%, rgba(54, 89, 219, 0.33) 17%), linear-gradient(to right, #5b7cfa, #3659db);
@@ -12,9 +13,23 @@
     position: relative;
     border-radius: 12px 12px 0 0;
     overflow: hidden;
+    cursor: pointer;
+    transform-origin: 50% 65%;
+    transition: transform 1s, filter 1s ease-in-out;
+    filter: brightness(150%);
 }
 
-.leaderboard header .leaderboard__title {
+#leaderboard header:hover {
+    filter: brightness(100%);
+    transform: scale(1.1);
+}
+
+.leaderboard__btn {
+    width: inherit;
+    height: inherit;
+}
+
+#leaderboard header .leaderboard__title {
     position: absolute;
     z-index: 2;
     top: 50%;
@@ -24,17 +39,17 @@
     margin: 0;
 }
 
-.leaderboard header .leaderboard__title span {
+#leaderboard header .leaderboard__title span {
     display: block;
 }
 
-.leaderboard header .leaderboard__title--top {
+#leaderboard header .leaderboard__title--top {
     font-size: 24px;
     font-weight: 700;
     letter-spacing: 6.5px;
 }
 
-.leaderboard header .leaderboard__title--bottom {
+#leaderboard header .leaderboard__title--bottom {
     font-size: 13px;
     font-weight: 500;
     letter-spacing: 3.55px;
@@ -42,7 +57,7 @@
     transform: translateY(-2px);
 }
 
-.leaderboard header .leaderboard__icon {
+#leaderboard header .leaderboard__icon {
     fill: #fff;
     opacity: 0.35;
     width: 50px;
@@ -62,7 +77,7 @@
 
 .leaderboard__profile {
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-columns: 3fr 1fr ;
     align-items: center;
     padding: 10px 30px 10px 10px;
     overflow: hidden;
@@ -72,18 +87,27 @@
     transition: transform 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98), box-shadow 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98);
     background-color: #fff;
 }
+.leaderboard__descripto{   
+    align-items: center;
+    font-size: 1.5em;
+    position: relative;
+    padding: 10px 30px 10px 10px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
+    cursor: pointer;
+    transition: transform 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98), box-shadow 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98);
+    background-color: #fff;
+}
+.noneVis{
+    display: none;
+}
 
 .leaderboard__profile:hover {
     transform: scale(1.2);
     box-shadow: 0 9px 47px 11px rgba(51, 51, 51, 0.18);
 }
 
-.leaderboard__picture {
-    max-width: 100%;
-    width: 60px;
-    border-radius: 50%;
-    box-shadow: 0 0 0 10px #ebeef3, 0 0 0 22px #f3f4f6;
-}
 
 .leaderboard__name {
     color: #979cb0;
@@ -116,6 +140,6 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
 }
 
-.leaderboard {
+#leaderboard {
     box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.4);
 }
