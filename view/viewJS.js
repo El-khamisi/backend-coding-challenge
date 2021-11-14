@@ -1,8 +1,7 @@
 const leaderboard = document.getElementById('leaderboard-body');
 const btn = document.getElementById('leaderboard-header');
-const prof = document.getElementById('leaderboard__profiles');
 
-let obj = {};
+
 async function getData(url = '') {
     console.log(url);
     const response = await fetch(url)
@@ -19,10 +18,13 @@ async function getData(url = '') {
                     <article class="leaderboard__profile">
                         <span class="leaderboard__name">${language}</span>
                         <span class="leaderboard__value">${data[language].count}<span>repositories</span></span>
+                        <div class="leaderboard__descripto">askdljfa;sljdf;lsjssssssssssssssssssssssssssssssssssssssssssdf</div>
                      </article>
                     </main>`);
-       
-            }
+                    
+                }
+        
+
         }).catch((error) => {
             alert(error)
         });
@@ -36,7 +38,3 @@ btn.addEventListener('mouseup', (e) => {
     leaderboard.innerHTML = '<h1>Featching Please Wait .....</h1>';
     getData('/list');
 });
-
-prof.addEventListener('mouseup', (e)=>{
-    prof.document.getElementById('')
-})
