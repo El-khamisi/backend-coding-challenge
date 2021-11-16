@@ -1,13 +1,26 @@
 const leaderboard = document.getElementById('leaderboard-body');
 const btn = document.getElementById('leaderboard-header');
 
-const languageCard = (name, count) => {
-    return `
+const languageCard = (name, count, repos) => {
+
+    const card = document.createElement('article');
+    card.className = 'leaderboard__profile';
+
+    card.innerHTML = `
     <article class="leaderboard__profile">
         <span class="leaderboard__name">${name}</span>
-        <span class="leaderboard__value">${count}<span>repositories</span></span>
-        <div class="leaderboard__descripto">askdljfa;sljdf;lsjssssssssssssssssssssssssssssssssssssssssssdf</div>
-     </article>`;
+        <span class="leaderboard__value">${count}<span>repositories</span></span>`;
+    
+    const descripto = document.createElement('div');
+    descripto.className = 'leaderboard__descripto';
+
+    descripto.innerHTML = repos.forEach(e =>{
+        `<li>${e}</li>`
+    });
+
+    card.appendChild(descripto);
+
+    return card;
 };
 
 
@@ -39,11 +52,14 @@ const getData = async ()=> {
 
             //Reset innerHtml
             leaderboard.innerHTML = ''; 
+
+            //Loop over every language in data object and create a separate card for each of them
             for (const language in data) {
 
                 const name = language;
-                const count = data[language].count;
-                leaderboard.insertAdjacentHTML('beforeend', languageCard(name, count));
+                const count = data[name].count;
+                const repos = data[name].repos;
+                leaderboard.insertAdjacentHTML('beforeend', languageCard(name, count, repos));
 
             }
 
