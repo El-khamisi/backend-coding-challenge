@@ -7,15 +7,14 @@ const languageCard = (name, count, repos) => {
     card.className = 'leaderboard__profile';
 
     card.innerHTML = `
-    <article class="leaderboard__profile">
         <span class="leaderboard__name">${name}</span>
         <span class="leaderboard__value">${count}<span>repositories</span></span>`;
-    
-    const descripto = document.createElement('div');
+
+    const descripto = document.createElement('ul');
     descripto.className = 'leaderboard__descripto';
 
-    descripto.innerHTML = repos.forEach(e =>{
-        `<li>${e}</li>`
+    repos.forEach(e => {
+        descripto.innerHTML += `<li>${e}</li>`;
     });
 
     card.appendChild(descripto);
@@ -37,7 +36,7 @@ const languageCard = (name, count, repos) => {
  * 
  * @param {String} URL A string URL you going to use for fetching repositories 
  */
-const getData = async ()=> {
+const getData = async() => {
     leaderboard.innerHTML = '<h1>  Featching Please Wait .....</h1>';
 
 
@@ -51,7 +50,7 @@ const getData = async ()=> {
         }).then(data => {
 
             //Reset innerHtml
-            leaderboard.innerHTML = ''; 
+            leaderboard.innerHTML = '';
 
             //Loop over every language in data object and create a separate card for each of them
             for (const language in data) {
@@ -59,15 +58,20 @@ const getData = async ()=> {
                 const name = language;
                 const count = data[name].count;
                 const repos = data[name].repos;
-                leaderboard.insertAdjacentHTML('beforeend', languageCard(name, count, repos));
+                leaderboard.appendChild(languageCard(name, count, repos));
 
             }
 
+
+
+
+
+        }).then(() => {
+            //Add Event listener to each language card
             document.querySelectorAll('.leaderboard__profile').forEach((element) => {
                 element.addEventListener('mouseup', showSublist);
-            })
-            
-            
+            });
+
         }).catch((error) => {
             alert(error)
         });
@@ -78,19 +82,27 @@ const getData = async ()=> {
 
 
 
-const showSublist = e =>{
-    const child = document.querySelector('.leaderboard__descripto');
+const showSublist = e => {
+    const child = e.currentTarget.querySelector('.leaderboard__descripto');
     child.style.display = 'block';
 }
 
-const hideSublist = e =>{
+/**
+ * we're going to calculate whole page x and y coordinates 
+ * Also we get the main leaderboard coordinates then compare 
+ * to see if the mouse cursor is outside the main border to hide them
+ */
+const hideSublist = e => {
+
 
     const border = leaderboard.getClientRects()[0];
-    const borderX = e.clientX < border.left || e.clientX > border.right; 
-    const borderY = e.clientY < border.top  || e.clientY > border.bottom;
-    
-    if(borderX || borderY){
-        document.querySelector('.leaderboard__descripto').style.display = 'none';
+    const borderX = e.clientX < border.left || e.clientX > border.right;
+    const borderY = e.clientY < border.top || e.clientY > border.bottom;
+    const desc = document.querySelectorAll('.leaderboard__descripto');
+
+
+    if (desc != undefined && (borderX || borderY)) {
+        desc.forEach(e => e.style.display = 'none');
     }
 }
 
