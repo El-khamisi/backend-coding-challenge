@@ -67,15 +67,9 @@
     transform: translate(-50%, -50%);
 }
 
-.leaderboard__profiles {
-    background-color: #fff;
-    border-radius: 0 0 12px 12px;
-    padding: 15px 15px 20px;
-    display: grid;
-    row-gap: 8px;
-}
 
 .leaderboard__profile {
+    margin: 5px;
     display: grid;
     grid-template-columns: 3fr 1fr ;
     align-items: center;
