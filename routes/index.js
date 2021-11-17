@@ -10,7 +10,7 @@ const indexController = require('../controllers/indexController');
  * Mock Controller 
  * 
  */
-const mockApi = require('../testing/mockAPI.test');
+// const mockApi = require('../testing/mockAPI.test');
 
 /**
  * remove comments to try fake routes out
