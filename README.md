@@ -1,7 +1,7 @@
 # Backend-coding-challenge
 
 ## Description
-A  web site ( based on node.js and express framework) fetching trendy repositories created in the last 30 days from now, then store the name and the language of code was used inside the repository and display all of this to the user in a simple GUI interface.
+A website ( based on node.js and express framework) fetching trendy repositories created in the last 30 days from now, then storing the name and the language of code used inside the repository and displaying all of this to the user in a simple GUI interface.
 there is no fancy Front End according to that it is a backend challenge, but I used plain `HTML5`, some `CSS`, and `VanillaJS` for simple logic needed.
 
 ## Directory Structure

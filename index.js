@@ -15,7 +15,9 @@ require('dotenv').config()
 // Create the Express application
 const app = express();
 
-//static Folder
+/**
+ * To serve static files a built-in middleware function in Express for simplicity
+ */
 app.use(express.static('view'))
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
