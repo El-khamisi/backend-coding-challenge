@@ -39,7 +39,7 @@ npm install
 
 ### Executing program
 
-* The website worked on `http://localhost` by `nodemon` developer monitoring server
+* The website worked on `http://localhost:8000` by `nodemon` developer monitoring server
 * can be changed at `index.js 40:12`
 ```
 nodemon index.js
@@ -53,4 +53,4 @@ Send an E-mail [mohammd.alkhamisi@gmail.com]()
 
 ## License
 
-This project is licensed under the [Apache License 2.0]() License - see the LICENSE.md file for details
+This project is licensed under the [Apache License 2.0](https://github.com/El-khamisi/backend-coding-challenge/blob/main/LICENSE.md) License - see the LICENSE.md file for details
