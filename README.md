@@ -2,47 +2,54 @@
 
 ## Description
 A website ( based on node.js and express framework) fetching trendy repositories created in the last 30 days from now, then storing the name and the language of code used inside the repository and displaying all of this to the user in a simple GUI interface.
-there is no fancy Front End according to that it is a backend challenge, but I used plain `HTML5`, some `CSS`, and `VanillaJS` for simple logic needed.
+there is no fancy Front End according to that it is a backend challenge, but I used plain `HTML5`, some `CSS`, and `VanillaJS` for simple logic needed, all the specifics were created just as the challenge has defined them.
 
+
+## Installing
+
+* Download the dependencies with `npm` package manager
+```
+$ npm install
+```
+## Features
+* Bring trendy repositories that were created in the last 30 days from now
+* Put the fetched repositories in groups by the programming language they have been written in
+
+## Executing program
+* The website worked on `http://localhost:PORT` OR by `nodemon` int developer with monitoring debug terminal
+
+```
+$ npm start
+```
+## Environment Variables
+```
+PORT
+```
+## Testing
+This project contains unit tests. Follow these steps to run the tests.
+```
+$ nodemon index.js
+```
 ## Directory Structure
 
 ```
 .
-|_controllers/
-    |_indexController.js
-|
 |_node_modules/
 |
-|_routes/
-    |_index.js
+|_controllers/          #logic and controllers tier
 |
-|_testing/
+|_routes/               #endpoints API
 |
-|_view
-    |_index.html
-    |_style.css
-    |_viewJs.js
+|_testing/              #unit-testing labs in jest
+|
+|_view/                 #static views served by Express
+|
+|_.env
 |_.gitignore
-|
 |_index.js
 |_package.json
 |_README.md
 |_LICENSE.md
-```
-
-### Installing
-
-* Download the dependencies with `npm` package manager
-```
-npm install
-```
-
-### Executing program
-
-* The website worked on `http://localhost:8000` by `nodemon` developer monitoring server
-* can be changed at `index.js 40:12`
-```
-nodemon index.js
 ```
 
 ## Help
